@@ -1,10 +1,15 @@
 package com.yy.frame
 
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.TaskAction
+import java.io.File
+
 /**
- * Created by binlly on 2020/6/22-10:24
+ * Created by binlly on 2020/6/23-20:13
  *
  * @author binlly >_
- *
  *     _                                           ____  _       _ _
  *    / \__      _____  ___  ___  _ __ ___   ___  | __ )(_)_ __ | | |_   _
  *   / _ \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \ |  _ \| | '_ \| | | | | |
@@ -12,22 +17,20 @@ package com.yy.frame
  * /_/   \_\_/\_/ \___||___/\___/|_| |_| |_|\___| |____/|_|_| |_|_|_|\__, |
  *                                                                   |___/
  */
-//class MyTask extends DefaultTask {
-//
-//    // 定义输入
-//    @Input
-//    String title
-//
-//    @Input
-//    int age
-//
-//    // 定义输出
-//    @OutputDirectory
-//    File destDir
-//
-//    @TaskAction
-//    void action() {
-//        println("my task run ${title} -- ${age}")
-//    }
-//
-//}
+open class MyTaskKt: DefaultTask() {
+
+    @Input
+    var title: String? = "我是小白"
+
+    @Input
+    var age = 18
+
+    @OutputDirectory
+    var destDir: File? = null
+
+    @TaskAction
+    fun action() {
+        println("Kotlin task is run! $title <=> $age")
+    }
+
+}

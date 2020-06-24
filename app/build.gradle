@@ -4,7 +4,19 @@ plugins {
     id 'myplugin'
 }
 
-//apply plugin: 'myplugin'
+task myTaskTest(type: com.yy.frame.MyTaskKt) {
+    title = "我来啦"
+    age = 998
+    destDir = new File("$buildDir/test")
+
+    doFirst {
+        println("---first***")
+    }
+
+    doLast {
+        println("---last***")
+    }
+}
 
 android {
     compileSdkVersion 29

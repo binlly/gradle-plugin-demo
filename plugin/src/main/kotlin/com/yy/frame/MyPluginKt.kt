@@ -1,5 +1,9 @@
 package com.yy.frame
 
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+
 /**
  * Created by binlly on 2020/6/17-17:11
  *
@@ -11,12 +15,11 @@ package com.yy.frame
  *                                                                   |___/
  */
 
-//class MyPlugin implements Plugin<Project> {
-//
-//    @Override
-//    void apply(Project project) {
-//        println("apply my plugin")
-//        project.tasks.create("myTask", MyTask.class)
-//        project.tasks.create("myTaskKt", MyTaskKt)
-//    }
-//}
+class MyPluginKt: Plugin<Project> {
+
+    override fun apply(project: Project) {
+        println("apply my plugin kt")
+        // project.tasks.create("myTask", MyTask::class.java)
+        project.tasks.create("myTaskKt", MyTaskKt::class.java)
+    }
+}
